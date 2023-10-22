@@ -1,5 +1,5 @@
 <template>
-  <a-card title="学籍信息">
+  <a-card id="school-roll-info" title="学籍信息">
     <a-descriptions :data="data" bordered />
     <template #extra>
       <a-button type="text">
