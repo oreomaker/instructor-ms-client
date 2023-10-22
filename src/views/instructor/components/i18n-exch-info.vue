@@ -1,5 +1,5 @@
 <template>
-  <a-card id="base-info" title="国际交流">
+  <a-card id="i18n-exch-info" title="国际交流">
     <a-descriptions :data="data" bordered />
     <template #extra>
       <a-button type="text" @click="handleClick">

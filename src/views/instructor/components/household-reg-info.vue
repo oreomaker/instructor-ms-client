@@ -1,5 +1,5 @@
 <template>
-  <a-card id="base-info" title="户籍信息">
+  <a-card id="household-reg-info" title="户籍信息">
     <a-descriptions :data="data" bordered />
     <template #extra>
       <a-button type="text" @click="handleClick">

@@ -1,5 +1,5 @@
 <template>
-  <a-card id="base-info" title="毕业设计">
+  <a-card id="grad-project-info" title="毕业设计">
     <a-descriptions :data="data" bordered />
     <template #extra>
       <a-button type="text" @click="handleClick">

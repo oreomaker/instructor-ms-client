@@ -1,5 +1,5 @@
 <template>
-  <a-card id="base-info" title="组织信息">
+  <a-card id="party-organization-info" title="组织信息">
     <a-descriptions :data="data" bordered />
     <template #extra>
       <a-button type="text" @click="handleClick">

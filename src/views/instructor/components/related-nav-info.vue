@@ -1,5 +1,5 @@
 <template>
-  <a-card id="base-info" title="相关导航">
+  <a-card id="related-nav-info" title="相关导航">
     <a-descriptions :data="data" bordered />
     <template #extra>
       <a-button type="text" @click="handleClick">

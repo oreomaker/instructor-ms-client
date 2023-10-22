@@ -1,5 +1,5 @@
 <template>
-  <a-card id="base-info" title="联系方式">
+  <a-card id="contact-info" title="联系方式">
     <a-descriptions :data="data" bordered />
     <template #extra>
       <a-button type="text" @click="handleClick">
