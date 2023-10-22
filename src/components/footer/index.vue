@@ -1,5 +1,7 @@
 <template>
-  <a-layout-footer class="footer">Arco Pro</a-layout-footer>
+  <a-layout-footer class="footer"
+    >北京交通大学 Beijing Jiaotong University</a-layout-footer
+  >
 </template>
 
 <script lang="ts" setup></script>
