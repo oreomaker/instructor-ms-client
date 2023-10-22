@@ -1,6 +1,5 @@
 <template>
   <a-card id="contact-info" title="联系方式">
-    <a-descriptions :data="data" bordered />
     <template #extra>
       <a-button type="text" @click="handleClick">
         <template #icon>
@@ -9,6 +8,9 @@
         编辑
       </a-button>
     </template>
+
+    <a-descriptions :data="data" bordered />
+
     <a-modal
       :visible="visible"
       width="auto"
@@ -37,78 +39,76 @@
       </a-form>
     </a-modal>
   </a-card>
+  <a-card title="家庭信息">
+    <a-table :columns="columns" :data="familyContact" :pagination="false" />
+  </a-card>
 </template>
 
 <script lang="ts" setup>
-  import { ref } from 'vue';
+  import { reactive, ref } from 'vue';
   import { FormInstance } from '@arco-design/web-vue/es/form';
 
   const data = [
     {
-      label: '姓名',
-      value: '测试',
+      label: '手机',
+      value: '19999999999',
     },
     {
-      label: '民族',
-      value: '汉族',
-    },
-    {
-      label: '姓名拼音',
+      label: '微信号',
       value: 'ceshi',
     },
     {
-      label: '曾用名',
+      label: '宿舍号',
+      value: 'z16-101',
+    },
+    {
+      label: '紧急联系人',
+      value: '张三',
+    },
+    {
+      label: '联系人电话',
+      value: '19999999999',
+    },
+    {
+      label: '电子邮箱',
+      value: 'example@test.com',
+    },
+    {
+      label: '家庭电话',
       value: '',
     },
     {
-      label: '出生日期',
-      value: '2000年1月1日',
-    },
-    {
-      label: '婚姻状态',
-      value: '未婚',
-    },
-    {
-      label: '国籍',
-      value: '中国',
-    },
-    {
-      label: '籍贯',
-      value: '河北',
-    },
-    {
-      label: '政治面貌',
-      value: '团员',
-    },
-    {
-      label: '证件类型',
-      value: '身份证',
-    },
-    {
-      label: '证件号码',
-      value: '123456789',
-    },
-    {
-      label: '生源地',
-      value: '北京',
-    },
-    {
-      label: '宗教信仰',
-      value: '无',
-    },
-    {
-      label: '身高(cm)',
-      value: '170',
-    },
-    {
-      label: '健康状况',
-      value: '良好',
-    },
-    {
-      label: '体重(kg)',
-      value: '70',
+      label: '家庭住址',
+      value: '北京市海淀区',
     },
   ];
+  const columns = [
+    {
+      title: '关系',
+      dataIndex: 'relation',
+    },
+    {
+      title: '所在单位',
+      dataIndex: 'workplace',
+    },
+    {
+      title: '职务',
+      dataIndex: 'position',
+    },
+    {
+      title: '联系方式',
+      dataIndex: 'contact',
+    },
+  ];
+  const familyContact = reactive([
+    {
+      key: '1',
+      relation: 'Jane Doe',
+      workplace: 'Morgan Stanley',
+      position: 'Staff',
+      contact: 'New York No. 1 Lake Park',
+    },
+  ]);
 
   const visible = ref(false);
   const handleClick = () => {

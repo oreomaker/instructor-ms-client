@@ -4,7 +4,7 @@
 
     <div class="content">
       <div class="content-left">
-        <a-space direction="vertical" size="large" fill>
+        <a-space direction="vertical" size="medium" fill>
           <BaseInfo class="general-card" />
           <SchoolRollInfo class="general-card" />
           <ContactInfo class="general-card" />
@@ -49,6 +49,14 @@
           </a-anchor>
         </a-affix>
       </div>
+    </div>
+    <div class="absolute">
+      <a-button type="outline">
+        <template #icon>
+          <icon-export />
+        </template>
+        导出
+      </a-button>
     </div>
   </div>
 </template>
@@ -100,5 +108,11 @@
     .tab-pane-wrapper {
       padding: 0 16px 16px;
     }
+  }
+
+  .absolute {
+    position: fixed;
+    bottom: 30px;
+    right: 24px;
   }
 </style>
