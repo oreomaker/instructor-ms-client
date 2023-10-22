@@ -1,5 +1,15 @@
 <template>
-  <a-descriptions :data="data" title="学籍信息" bordered />
+  <a-card title="学籍信息">
+    <a-descriptions :data="data" bordered />
+    <template #extra>
+      <a-button type="text">
+        <template #icon>
+          <icon-edit />
+        </template>
+        编辑
+      </a-button>
+    </template>
+  </a-card>
 </template>
 
 <script lang="ts" setup>
