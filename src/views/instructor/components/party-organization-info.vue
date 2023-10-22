@@ -1,5 +1,5 @@
 <template>
-  <a-card id="base-info" title="班级信息">
+  <a-card id="base-info" title="组织信息">
     <a-descriptions :data="data" bordered />
     <template #extra>
       <a-button type="text" @click="handleClick">
@@ -15,7 +15,7 @@
       @ok="handleOk"
       @cancel="handleCancel"
     >
-      <template #title> 班级信息 </template>
+      <template #title> 组织信息编辑 </template>
       <a-form ref="baseInfoFormRef" layout="vertical" :model="baseInfo">
         <a-row :gutter="80">
           <a-col :span="8">
