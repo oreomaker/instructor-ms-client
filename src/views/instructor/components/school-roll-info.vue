@@ -1,6 +1,5 @@
 <template>
-  <!-- 学籍信息 -->
-  <a-descriptions :data="data" title="基本信息" bordered />
+  <a-descriptions :data="data" title="学籍信息" bordered />
 </template>
 
 <script lang="ts" setup>
