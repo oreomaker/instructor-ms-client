@@ -22,7 +22,7 @@ setupMock({
           email: 'wangliqun@email.com',
           job: 'frontend',
           jobName: '前端艺术家',
-          organization: 'Frontend',
+          organization: '软件学院',
           organizationName: '前端',
           location: 'beijing',
           locationName: '北京',

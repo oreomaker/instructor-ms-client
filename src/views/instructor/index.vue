@@ -1,4 +1,5 @@
 <template>
+  <UserInfoHeader />
   <div class="container">
     <a-card class="general-card">
       <BaseInfo />
@@ -8,6 +9,7 @@
 
 <script lang="ts" setup>
   import BaseInfo from './components/base-info.vue';
+  import UserInfoHeader from './components/user-info-header.vue';
 </script>
 
 <style scoped lang="less">
