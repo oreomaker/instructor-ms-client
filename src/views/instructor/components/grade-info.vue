@@ -1,6 +1,5 @@
 <template>
   <a-card id="grade-info" title="成绩信息">
-    <a-descriptions :data="data" bordered />
     <template #extra>
       <a-button type="text" @click="handleClick">
         <template #icon>
@@ -9,6 +8,32 @@
         编辑
       </a-button>
     </template>
+
+    <a-card title="平时成绩与思测">
+      <a-table
+        :columns="annualGradeColumn"
+        :data="annualGrade"
+        :pagination="false"
+      />
+    </a-card>
+    <a-card title="学习成绩">
+      <a-table
+        :columns="courseGradeColumn"
+        :data="courseGrade"
+        :pagination="false"
+      />
+    </a-card>
+    <a-card title="四六级成绩">
+      <a-descriptions :data="cetGrade" bordered />
+    </a-card>
+    <a-card title="宿舍成绩">
+      <a-table
+        :columns="dormitoryGradeColumn"
+        :data="dormitoryGrade"
+        :pagination="false"
+      />
+    </a-card>
+
     <a-modal
       :visible="visible"
       width="auto"
@@ -43,75 +68,143 @@
   import { ref } from 'vue';
   import { FormInstance } from '@arco-design/web-vue/es/form';
 
-  const data = [
+  const annualGradeColumn = [
     {
-      label: '姓名',
-      value: '测试',
+      title: '学年',
+      dataIndex: 'academic_year',
     },
     {
-      label: '民族',
-      value: '汉族',
+      title: '学习成绩',
+      dataIndex: 'academic_score',
     },
     {
-      label: '姓名拼音',
-      value: 'ceshi',
+      title: '学习排名',
+      dataIndex: 'academic_rank',
     },
     {
-      label: '曾用名',
-      value: '',
+      title: '思测成绩',
+      dataIndex: 'cognitive_score',
     },
     {
-      label: '出生日期',
-      value: '2000年1月1日',
+      title: '思测排名',
+      dataIndex: 'cognitive_rank',
     },
     {
-      label: '婚姻状态',
-      value: '未婚',
+      title: '人数',
+      dataIndex: 'number_of_students',
+    },
+  ];
+  const annualGrade = ref([
+    {
+      academic_year: '2020-2021',
+      academic_score: '90',
+      academic_rank: '1',
+      cognitive_score: '90',
+      cognitive_rank: '1',
+      number_of_students: '100',
     },
     {
-      label: '国籍',
-      value: '中国',
+      academic_year: '2020-2021',
+      academic_score: '90',
+      academic_rank: '1',
+      cognitive_score: '90',
+      cognitive_rank: '1',
+      number_of_students: '100',
+    },
+  ]);
+
+  const courseGradeColumn = [
+    {
+      title: '学年学期',
+      dataIndex: 'academic_semester',
     },
     {
-      label: '籍贯',
-      value: '河北',
+      title: '课程名',
+      dataIndex: 'course_name',
     },
     {
-      label: '政治面貌',
-      value: '团员',
+      title: '课程号',
+      dataIndex: 'course_code',
     },
     {
-      label: '证件类型',
-      value: '身份证',
+      title: '学分',
+      dataIndex: 'credits',
     },
     {
-      label: '证件号码',
-      value: '123456789',
+      title: '最终成绩',
+      dataIndex: 'final_score',
     },
     {
-      label: '生源地',
-      value: '北京',
+      title: '课程属性',
+      dataIndex: 'course_attribute',
     },
     {
-      label: '宗教信仰',
-      value: '无',
+      title: '修读方式',
+      dataIndex: 'study_mode',
+    },
+  ];
+  const courseGrade = ref([
+    {
+      academic_semester: '2020-2021',
+      course_name: '高等数学',
+      course_code: '123456',
+      credits: '4',
+      final_score: '90',
+      course_attribute: '必修',
+      study_mode: '正常',
     },
     {
-      label: '身高(cm)',
-      value: '170',
+      academic_semester: '2020-2021',
+      course_name: '高等数学',
+      course_code: '123456',
+      credits: '4',
+      final_score: '90',
+      course_attribute: '必修',
+      study_mode: '正常',
+    },
+  ]);
+
+  const cetGrade = [
+    {
+      label: '四级成绩',
+      value: '600',
     },
     {
-      label: '健康状况',
-      value: '良好',
-    },
-    {
-      label: '体重(kg)',
-      value: '70',
+      label: '六级成绩',
+      value: '500',
     },
   ];
 
+  const dormitoryGradeColumn = [
+    {
+      title: '个人分数',
+      dataIndex: 'personal_score',
+    },
+    {
+      title: '宿舍分数',
+      dataIndex: 'dormitory_score',
+    },
+    {
+      title: '检查日期',
+      dataIndex: 'inspection_date',
+    },
+  ];
+  const dormitoryGrade = ref([
+    {
+      personal_score: '90',
+      dormitory_score: '90',
+      inspection_date: '2020-01-01',
+    },
+    {
+      personal_score: '90',
+      dormitory_score: '90',
+      inspection_date: '2020-01-01',
+    },
+  ]);
+
   const visible = ref(false);
   const handleClick = () => {
+    // TODO: 使用表格中的编辑按钮进行操作
     visible.value = true;
   };
   const handleOk = () => {

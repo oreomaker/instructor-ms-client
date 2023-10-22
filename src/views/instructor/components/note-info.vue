@@ -1,6 +1,5 @@
 <template>
   <a-card id="note-info" title="人员备注">
-    <a-descriptions :data="data" bordered />
     <template #extra>
       <a-button type="text" @click="handleClick">
         <template #icon>
@@ -9,6 +8,9 @@
         编辑
       </a-button>
     </template>
+
+    <a-table :columns="columns" :data="data" :pagination="false" />
+
     <a-modal
       :visible="visible"
       width="auto"
@@ -40,75 +42,30 @@
 </template>
 
 <script lang="ts" setup>
-  import { ref } from 'vue';
+  import { ref, reactive } from 'vue';
   import { FormInstance } from '@arco-design/web-vue/es/form';
 
-  const data = [
+  const columns = [
     {
-      label: '姓名',
-      value: '测试',
+      title: '录入人',
+      dataIndex: 'recorder',
     },
     {
-      label: '民族',
-      value: '汉族',
+      title: '记录内容',
+      dataIndex: 'record_content',
     },
     {
-      label: '姓名拼音',
-      value: 'ceshi',
-    },
-    {
-      label: '曾用名',
-      value: '',
-    },
-    {
-      label: '出生日期',
-      value: '2000年1月1日',
-    },
-    {
-      label: '婚姻状态',
-      value: '未婚',
-    },
-    {
-      label: '国籍',
-      value: '中国',
-    },
-    {
-      label: '籍贯',
-      value: '河北',
-    },
-    {
-      label: '政治面貌',
-      value: '团员',
-    },
-    {
-      label: '证件类型',
-      value: '身份证',
-    },
-    {
-      label: '证件号码',
-      value: '123456789',
-    },
-    {
-      label: '生源地',
-      value: '北京',
-    },
-    {
-      label: '宗教信仰',
-      value: '无',
-    },
-    {
-      label: '身高(cm)',
-      value: '170',
-    },
-    {
-      label: '健康状况',
-      value: '良好',
-    },
-    {
-      label: '体重(kg)',
-      value: '70',
+      title: '录入时间',
+      dataIndex: 'record_time',
     },
   ];
+  const data = reactive([
+    {
+      recorder: '张三',
+      record_content: '这是一条备注信息',
+      record_time: '2021-08-01',
+    },
+  ]);
 
   const visible = ref(false);
   const handleClick = () => {

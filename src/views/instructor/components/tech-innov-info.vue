@@ -1,129 +1,179 @@
 <template>
   <a-card id="tech-innov-info" title="科创信息">
-    <a-descriptions :data="data" bordered />
-    <template #extra>
-      <a-button type="text" @click="handleClick">
-        <template #icon>
-          <icon-edit />
-        </template>
-        编辑
-      </a-button>
-    </template>
-    <a-modal
-      :visible="visible"
-      width="auto"
-      @ok="handleOk"
-      @cancel="handleCancel"
-    >
-      <template #title> 科创信息编辑 </template>
-      <a-form ref="baseInfoFormRef" layout="vertical" :model="baseInfo">
-        <a-row :gutter="80">
-          <a-col :span="8">
-            <a-form-item label="联系人姓名" name="contactName">
-              <a-input :value="baseInfo.contactName" />
-            </a-form-item>
-          </a-col>
-          <a-col :span="8">
-            <a-form-item label="预计到岗时间" name="estimateTime">
-              <a-date-picker :value="baseInfo.estimateTime" />
-            </a-form-item>
-          </a-col>
-          <a-col :span="8">
-            <a-form-item label="预计到岗时间" name="estimateTime">
-              <a-date-picker :value="baseInfo.estimateTime" />
-            </a-form-item>
-          </a-col>
-        </a-row>
-      </a-form>
-    </a-modal>
+    <a-card title="科研信息">
+      <a-table
+        :columns="researchColumn"
+        :data="researchData"
+        :pagination="false"
+      />
+    </a-card>
+    <a-card title="大学生创新创业项目">
+      <a-table
+        :columns="collegeInnovColumn"
+        :data="collegeInnovData"
+        :pagination="false"
+      />
+    </a-card>
+    <a-card title="论文发表信息">
+      <a-table :columns="paperColumn" :data="paperData" :pagination="false" />
+    </a-card>
+    <a-card title="著作">
+      <a-table
+        :columns="publicationColumn"
+        :data="publicationData"
+        :pagination="false"
+      />
+    </a-card>
+    <a-card title="专利获取情况">
+      <a-table :columns="patentColumn" :data="patentData" :pagination="false" />
+    </a-card>
   </a-card>
 </template>
 
 <script lang="ts" setup>
-  import { ref } from 'vue';
-  import { FormInstance } from '@arco-design/web-vue/es/form';
+  import { ref, reactive } from 'vue';
 
-  const data = [
+  const researchColumn = ref([
     {
-      label: '姓名',
-      value: '测试',
+      title: '日期',
+      dataIndex: 'date',
     },
     {
-      label: '民族',
-      value: '汉族',
+      title: '项目名称',
+      dataIndex: 'project_name',
     },
     {
-      label: '姓名拼音',
-      value: 'ceshi',
+      title: '是否主持',
+      dataIndex: 'is_principal',
     },
     {
-      label: '曾用名',
-      value: '',
+      title: '项目来源',
+      dataIndex: 'project_source',
     },
     {
-      label: '出生日期',
-      value: '2000年1月1日',
+      title: '负责人',
+      dataIndex: 'project_leader',
     },
     {
-      label: '婚姻状态',
-      value: '未婚',
+      title: '参加人',
+      dataIndex: 'participants',
     },
-    {
-      label: '国籍',
-      value: '中国',
-    },
-    {
-      label: '籍贯',
-      value: '河北',
-    },
-    {
-      label: '政治面貌',
-      value: '团员',
-    },
-    {
-      label: '证件类型',
-      value: '身份证',
-    },
-    {
-      label: '证件号码',
-      value: '123456789',
-    },
-    {
-      label: '生源地',
-      value: '北京',
-    },
-    {
-      label: '宗教信仰',
-      value: '无',
-    },
-    {
-      label: '身高(cm)',
-      value: '170',
-    },
-    {
-      label: '健康状况',
-      value: '良好',
-    },
-    {
-      label: '体重(kg)',
-      value: '70',
-    },
-  ];
+  ]);
+  const researchData = reactive([]);
 
-  const visible = ref(false);
-  const handleClick = () => {
-    visible.value = true;
-  };
-  const handleOk = () => {
-    visible.value = false;
-  };
-  const handleCancel = () => {
-    visible.value = false;
-  };
+  const collegeInnovColumn = ref([
+    {
+      title: '学院',
+      dataIndex: 'department',
+    },
+    {
+      title: '项目名称',
+      dataIndex: 'project_name',
+    },
+    {
+      title: '项目级别',
+      dataIndex: 'project_level',
+    },
+    {
+      title: '项目人数',
+      dataIndex: 'team_size',
+    },
+    {
+      title: '指导教师',
+      dataIndex: 'faculty_advisor',
+    },
+    {
+      title: '参与类别',
+      dataIndex: 'participation_category',
+    },
+    {
+      title: '立项时间',
+      dataIndex: 'approval_date',
+    },
+  ]);
+  const collegeInnovData = reactive([]);
 
-  const baseInfoFormRef = ref<FormInstance>();
-  const baseInfo = ref({
-    contactName: '',
-    estimateTime: '',
-  });
+  const paperColumn = ref([
+    {
+      title: '出版时间',
+      dataIndex: 'publication_date',
+    },
+    {
+      title: '论文名称',
+      dataIndex: 'paper_title',
+    },
+    {
+      title: '发表物名称',
+      dataIndex: 'publication_name',
+    },
+    {
+      title: '期号/卷号',
+      dataIndex: 'issue_volume_number',
+    },
+    {
+      title: '刊号',
+      dataIndex: 'ISSN',
+    },
+    {
+      title: '语种码',
+      dataIndex: 'language_code',
+    },
+  ]);
+  const paperData = reactive([]);
+
+  const publicationColumn = ref([
+    {
+      title: '出版时间',
+      dataIndex: 'publication_date',
+    },
+    {
+      title: '著作名称',
+      dataIndex: 'book_title',
+    },
+    {
+      title: '出版社',
+      dataIndex: 'publisher',
+    },
+    {
+      title: '书号',
+      dataIndex: 'ISBN',
+    },
+    {
+      title: '本人排名',
+      dataIndex: 'author_rank',
+    },
+    {
+      title: '著作类别',
+      dataIndex: 'book_category',
+    },
+  ]);
+  const publicationData = reactive([]);
+
+  const patentColumn = ref([
+    {
+      title: '公开日',
+      dataIndex: 'publication_date',
+    },
+    {
+      title: '专利名称',
+      dataIndex: 'patent_title',
+    },
+    {
+      title: '本人排名',
+      dataIndex: 'author_rank',
+    },
+    {
+      title: '专利类型',
+      dataIndex: 'patent_type',
+    },
+    {
+      title: '专利申请号',
+      dataIndex: 'patent_application_number',
+    },
+    {
+      title: '当前法律状态',
+      dataIndex: 'current_legal_status',
+    },
+  ]);
+  const patentData = reactive([]);
 </script>

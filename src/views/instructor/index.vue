@@ -16,6 +16,8 @@
           <AwardLoanInfo class="general-card" />
           <AwardPracticeInfo class="general-card" />
           <MajorChangeInfo class="general-card" />
+          <OrientationInfo class="general-card" />
+          <GradProjectInfo class="general-card" />
           <EmploymentInfo class="general-card" />
           <TechInnovInfo class="general-card" />
           <I18nExchInfo class="general-card" />
@@ -41,6 +43,8 @@
               >奖励培训信息</a-anchor-link
             >
             <a-anchor-link href="#major-change-info">转专业信息</a-anchor-link>
+            <a-anchor-link href="#orientation-info">迎新数据</a-anchor-link>
+            <a-anchor-link href="#grad-project-info">毕设信息</a-anchor-link>
             <a-anchor-link href="#employment-info">就业信息</a-anchor-link>
             <a-anchor-link href="#tech-innov-info">科创信息</a-anchor-link>
             <a-anchor-link href="#i18n-exch-info">国际交流</a-anchor-link>
@@ -74,6 +78,8 @@
   import AwardLoanInfo from './components/award-loan-info.vue';
   import AwardPracticeInfo from './components/award-practice-info.vue';
   import MajorChangeInfo from './components/major-change-info.vue';
+  import OrientationInfo from './components/orientation-info.vue';
+  import GradProjectInfo from './components/grad-project-info.vue';
   import EmploymentInfo from './components/employment-info.vue';
   import TechInnovInfo from './components/tech-innov-info.vue';
   import I18nExchInfo from './components/i18n-exch-info.vue';

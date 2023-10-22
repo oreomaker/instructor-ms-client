@@ -45,68 +45,44 @@
 
   const data = [
     {
-      label: '姓名',
-      value: '测试',
+      label: '是否申请绿色通道',
+      value: '是',
     },
     {
-      label: '民族',
-      value: '汉族',
+      label: '是否申请助学贷款',
+      value: '是',
     },
     {
-      label: '姓名拼音',
-      value: 'ceshi',
+      label: '崇拜的偶像',
+      value: 'Donald Trump',
     },
     {
-      label: '曾用名',
+      label: '特长爱好',
       value: '',
     },
     {
-      label: '出生日期',
-      value: '2000年1月1日',
+      label: '高中担任职务及获奖',
+      value: '',
     },
     {
-      label: '婚姻状态',
-      value: '未婚',
+      label: '希望担任何种班级职务',
+      value: '班长',
     },
     {
-      label: '国籍',
-      value: '中国',
+      label: '对自己的性格描述',
+      value: '',
     },
     {
-      label: '籍贯',
-      value: '河北',
+      label: '对自己的家庭描述',
+      value: '',
     },
     {
-      label: '政治面貌',
-      value: '团员',
+      label: '大学的期望和目标',
+      value: '',
     },
     {
-      label: '证件类型',
-      value: '身份证',
-    },
-    {
-      label: '证件号码',
-      value: '123456789',
-    },
-    {
-      label: '生源地',
-      value: '北京',
-    },
-    {
-      label: '宗教信仰',
-      value: '无',
-    },
-    {
-      label: '身高(cm)',
-      value: '170',
-    },
-    {
-      label: '健康状况',
-      value: '良好',
-    },
-    {
-      label: '体重(kg)',
-      value: '70',
+      label: '对辅导员想说的话',
+      value: '',
     },
   ];
 

@@ -1,6 +1,5 @@
 <template>
   <a-card id="i18n-exch-info" title="国际交流">
-    <a-descriptions :data="data" bordered />
     <template #extra>
       <a-button type="text" @click="handleClick">
         <template #icon>
@@ -9,6 +8,9 @@
         编辑
       </a-button>
     </template>
+
+    <a-table :columns="columns" :data="data" :pagination="false" />
+
     <a-modal
       :visible="visible"
       width="auto"
@@ -40,75 +42,40 @@
 </template>
 
 <script lang="ts" setup>
-  import { ref } from 'vue';
+  import { ref, reactive } from 'vue';
   import { FormInstance } from '@arco-design/web-vue/es/form';
 
-  const data = [
+  const columns = [
     {
-      label: '姓名',
-      value: '测试',
+      title: '办理时间(年月)',
+      dataIndex: 'processing_date',
     },
     {
-      label: '民族',
-      value: '汉族',
+      title: '交流国别',
+      dataIndex: 'exchange_country',
     },
     {
-      label: '姓名拼音',
-      value: 'ceshi',
+      title: '交流单位',
+      dataIndex: 'exchange_institution',
     },
     {
-      label: '曾用名',
-      value: '',
+      title: '交流形式',
+      dataIndex: 'exchange_mode',
     },
     {
-      label: '出生日期',
-      value: '2000年1月1日',
+      title: '交流时间段',
+      dataIndex: 'exchange_duration',
     },
     {
-      label: '婚姻状态',
-      value: '未婚',
+      title: '学习专业',
+      dataIndex: 'study_major',
     },
     {
-      label: '国籍',
-      value: '中国',
-    },
-    {
-      label: '籍贯',
-      value: '河北',
-    },
-    {
-      label: '政治面貌',
-      value: '团员',
-    },
-    {
-      label: '证件类型',
-      value: '身份证',
-    },
-    {
-      label: '证件号码',
-      value: '123456789',
-    },
-    {
-      label: '生源地',
-      value: '北京',
-    },
-    {
-      label: '宗教信仰',
-      value: '无',
-    },
-    {
-      label: '身高(cm)',
-      value: '170',
-    },
-    {
-      label: '健康状况',
-      value: '良好',
-    },
-    {
-      label: '体重(kg)',
-      value: '70',
+      title: '最后资质（学位、证书、互换学分、其他）',
+      dataIndex: 'final_qualification',
     },
   ];
+  const data = reactive([]);
 
   const visible = ref(false);
   const handleClick = () => {
