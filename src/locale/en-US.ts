@@ -8,6 +8,7 @@ import localeSettings from './en-US/settings';
 export default {
   'menu.dashboard': 'Dashboard',
   'menu.instructor': 'Instructor',
+  'menu.manage': 'Manage',
   'menu.server.dashboard': 'Dashboard-Server',
   'menu.server.workplace': 'Workplace-Server',
   'menu.server.monitor': 'Monitor-Server',

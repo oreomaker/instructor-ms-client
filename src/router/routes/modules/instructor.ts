@@ -8,7 +8,7 @@ const INSTRUCTOR: AppRouteRecordRaw = {
   meta: {
     locale: 'menu.instructor',
     requiresAuth: true,
-    icon: 'icon-dashboard',
+    icon: 'icon-user',
     order: 0,
   },
   children: [
@@ -17,7 +17,7 @@ const INSTRUCTOR: AppRouteRecordRaw = {
       name: 'instructor-index',
       component: () => import('@/views/instructor/index.vue'),
       meta: {
-        locale: 'menu.dashboard.workplace',
+        locale: 'menu.instructor.info',
         requiresAuth: true,
         roles: ['*'],
       },
