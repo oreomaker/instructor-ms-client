@@ -22,6 +22,16 @@ const MANAGE: AppRouteRecordRaw = {
         roles: ['*'],
       },
     },
+    {
+      path: 'integrated-search',
+      name: 'integrated-search',
+      component: () => import('@/views/manage/integrated-search/index.vue'),
+      meta: {
+        locale: 'menu.manage.integrated-search',
+        requiresAuth: true,
+        roles: ['*'],
+      },
+    },
   ],
 };
 
