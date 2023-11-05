@@ -29,27 +29,26 @@
         <a-affix :offset-top="60">
           <a-anchor boundary="center">
             <a-anchor-link href="#base-info">基本信息</a-anchor-link>
-            <a-anchor-link href="#school-roll-info">学籍信息</a-anchor-link>
-            <a-anchor-link href="#contact-info">联系方式</a-anchor-link>
-            <a-anchor-link href="#class-info">班级信息</a-anchor-link>
-            <a-anchor-link href="#household-reg-info">户籍信息</a-anchor-link>
-            <a-anchor-link href="#cadre-info">干部信息</a-anchor-link>
+            <a-anchor-link href="#school-roll-info">家庭信息</a-anchor-link>
+            <a-anchor-link href="#contact-info">学习经历</a-anchor-link>
+            <a-anchor-link href="#class-info">工作履历</a-anchor-link>
+            <a-anchor-link href="#household-reg-info">行政职务</a-anchor-link>
+            <a-anchor-link href="#cadre-info">职称信息</a-anchor-link>
             <a-anchor-link href="#party-organization-info"
-              >组织信息</a-anchor-link
+              >岗位锻炼1个月以上</a-anchor-link
             >
-            <a-anchor-link href="#grade-info">成绩信息</a-anchor-link>
-            <a-anchor-link href="#award-loan-info">奖惩助贷信息</a-anchor-link>
-            <a-anchor-link href="#award-practice-info"
-              >奖励培训信息</a-anchor-link
+            <a-anchor-link href="#grade-info">培训情况一个月以内</a-anchor-link>
+            <a-anchor-link href="#award-loan-info">表彰奖励</a-anchor-link>
+            <a-anchor-link href="#award-practice-info">职业资格</a-anchor-link>
+            <a-anchor-link href="#major-change-info"
+              >学校年度考核</a-anchor-link
             >
-            <a-anchor-link href="#major-change-info">转专业信息</a-anchor-link>
-            <a-anchor-link href="#orientation-info">迎新数据</a-anchor-link>
-            <a-anchor-link href="#grad-project-info">毕设信息</a-anchor-link>
-            <a-anchor-link href="#employment-info">就业信息</a-anchor-link>
-            <a-anchor-link href="#tech-innov-info">科创信息</a-anchor-link>
-            <a-anchor-link href="#i18n-exch-info">国际交流</a-anchor-link>
-            <a-anchor-link href="#note-info">人员备注备</a-anchor-link>
-            <a-anchor-link href="#related-nav-info">相关导航</a-anchor-link>
+            <a-anchor-link href="#orientation-info">辅导员考核</a-anchor-link>
+            <a-anchor-link href="#grad-project-info">教学情况</a-anchor-link>
+            <a-anchor-link href="#employment-info">研究项目</a-anchor-link>
+            <a-anchor-link href="#tech-innov-info"
+              >科研成果(论文)</a-anchor-link
+            >
           </a-anchor>
         </a-affix>
       </div>
@@ -108,7 +107,7 @@
     }
 
     &-right {
-      width: 100px;
+      width: 130px;
     }
 
     .tab-pane-wrapper {
