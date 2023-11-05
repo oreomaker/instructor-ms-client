@@ -20,7 +20,7 @@ export interface StudyInfo {
   university: string;
   major: string;
   grad_date: string;
-  studying_year: string;
+  studying_year: number;
   degree_type: string;
   degree: string;
   degree_date: string;
