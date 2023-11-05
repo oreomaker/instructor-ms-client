@@ -10,8 +10,8 @@ export enum PositionType {
 }
 
 export interface WorkInfo {
-  start_date: string;
-  end_date: string;
+  start_time: string;
+  end_time: string;
   country: string;
   province: string;
   workplace: string;
