@@ -9,6 +9,7 @@
           <FamilyInfo class="general-card" />
           <StudyInfo class="general-card" />
           <WorkInfo class="general-card" />
+          <AdministrationInfo class="general-card" />
         </a-space>
       </div>
       <div class="content-right">
@@ -56,6 +57,7 @@
   import FamilyInfo from './components/family-info.vue';
   import StudyInfo from './components/study-info.vue';
   import WorkInfo from './components/work-info.vue';
+  import AdministrationInfo from './components/administration-info.vue';
 </script>
 
 <style scoped lang="less">
