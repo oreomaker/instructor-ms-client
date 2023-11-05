@@ -10,7 +10,7 @@ export enum FamilyRelationship {
 }
 
 export interface FamilyInfo {
-  relationship: string;
+  relationship: FamilyRelationship;
   name: string;
   gender: Gender;
   birthday: string;

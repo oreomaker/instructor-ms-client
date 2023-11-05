@@ -6,30 +6,14 @@
       <div class="content-left">
         <a-space direction="vertical" size="medium" fill>
           <BaseInfo class="general-card" />
-          <SchoolRollInfo class="general-card" />
-          <ContactInfo class="general-card" />
-          <ClassInfo class="general-card" />
-          <HouseholdRegInfo class="general-card" />
-          <CadreInfo class="general-card" />
-          <PartyOrganizationInfo class="general-card" />
-          <GradeInfo class="general-card" />
-          <AwardLoanInfo class="general-card" />
-          <AwardPracticeInfo class="general-card" />
-          <MajorChangeInfo class="general-card" />
-          <OrientationInfo class="general-card" />
-          <GradProjectInfo class="general-card" />
-          <EmploymentInfo class="general-card" />
-          <TechInnovInfo class="general-card" />
-          <I18nExchInfo class="general-card" />
-          <NoteInfo class="general-card" />
-          <RelatedNavInfo class="general-card" />
+          <FamilyInfo class="general-card" />
         </a-space>
       </div>
       <div class="content-right">
         <a-affix :offset-top="60">
           <a-anchor boundary="center">
             <a-anchor-link href="#base-info">基本信息</a-anchor-link>
-            <a-anchor-link href="#school-roll-info">家庭信息</a-anchor-link>
+            <a-anchor-link href="#family-info">家庭信息</a-anchor-link>
             <a-anchor-link href="#contact-info">学习经历</a-anchor-link>
             <a-anchor-link href="#class-info">工作履历</a-anchor-link>
             <a-anchor-link href="#household-reg-info">行政职务</a-anchor-link>
@@ -67,23 +51,7 @@
 <script lang="ts" setup>
   import UserInfoHeader from './components/user-info-header.vue';
   import BaseInfo from './components/base-info.vue';
-  import SchoolRollInfo from './components/school-roll-info.vue';
-  import ContactInfo from './components/contact-info.vue';
-  import ClassInfo from './components/class-info.vue';
-  import HouseholdRegInfo from './components/household-reg-info.vue';
-  import CadreInfo from './components/cadre-info.vue';
-  import PartyOrganizationInfo from './components/party-organization-info.vue';
-  import GradeInfo from './components/grade-info.vue';
-  import AwardLoanInfo from './components/award-loan-info.vue';
-  import AwardPracticeInfo from './components/award-practice-info.vue';
-  import MajorChangeInfo from './components/major-change-info.vue';
-  import OrientationInfo from './components/orientation-info.vue';
-  import GradProjectInfo from './components/grad-project-info.vue';
-  import EmploymentInfo from './components/employment-info.vue';
-  import TechInnovInfo from './components/tech-innov-info.vue';
-  import I18nExchInfo from './components/i18n-exch-info.vue';
-  import NoteInfo from './components/note-info.vue';
-  import RelatedNavInfo from './components/related-nav-info.vue';
+  import FamilyInfo from './components/family-info.vue';
 </script>
 
 <style scoped lang="less">

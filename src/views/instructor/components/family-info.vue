@@ -1,6 +1,5 @@
 <template>
-  <a-card id="class-info" title="班级信息">
-    <a-descriptions :data="data" bordered />
+  <a-card id="family-info" title="家庭信息">
     <template #extra>
       <a-button type="text" @click="handleClick">
         <template #icon>
@@ -9,13 +8,16 @@
         编辑
       </a-button>
     </template>
+
+    <a-table :columns="columns" :data="data" :pagination="false" />
+
     <a-modal
       :visible="visible"
       width="auto"
       @ok="handleOk"
       @cancel="handleCancel"
     >
-      <template #title> 班级信息 </template>
+      <template #title> 家庭信息编辑 </template>
       <a-form ref="baseInfoFormRef" layout="vertical" :model="baseInfo">
         <a-row :gutter="80">
           <a-col :span="8">
@@ -40,27 +42,54 @@
 </template>
 
 <script lang="ts" setup>
-  import { ref } from 'vue';
+  import { ref, reactive } from 'vue';
   import { FormInstance } from '@arco-design/web-vue/es/form';
+  // TODO: remove
+  import familyInfoData from '../data/family-info';
 
-  const data = [
+  const columns = [
     {
-      label: '自然班',
-      value: '软件2001',
+      title: '关系',
+      dataIndex: 'relationship',
     },
     {
-      label: '时间',
-      value: '2020-09-01',
+      title: '成员姓名',
+      dataIndex: 'name',
     },
     {
-      label: '班主任',
-      value: '张三',
+      title: '成员性别',
+      dataIndex: 'gender',
     },
     {
-      label: '班主任工号',
-      value: '10001',
+      title: '成员出生日期',
+      dataIndex: 'birthday',
+    },
+    {
+      title: '成员文化程度',
+      dataIndex: 'education_degree',
+    },
+    {
+      title: '成员民族',
+      dataIndex: 'ethnicity',
+    },
+    {
+      title: '政治面貌',
+      dataIndex: 'political_status',
+    },
+    {
+      title: '成员学习或工作单位',
+      dataIndex: 'workplace',
+    },
+    {
+      title: '成员职务',
+      dataIndex: 'position',
+    },
+    {
+      title: '备注',
+      dataIndex: 'note',
     },
   ];
+  const data = reactive(familyInfoData);
 
   const visible = ref(false);
   const handleClick = () => {
