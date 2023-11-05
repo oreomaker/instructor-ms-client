@@ -10,6 +10,7 @@
           <StudyInfo class="general-card" />
           <WorkInfo class="general-card" />
           <AdministrationInfo class="general-card" />
+          <JobTitle class="general-card" />
         </a-space>
       </div>
       <div class="content-right">
@@ -20,7 +21,7 @@
             <a-anchor-link href="#study-info">学习经历</a-anchor-link>
             <a-anchor-link href="#work-info">工作履历</a-anchor-link>
             <a-anchor-link href="#administration-info">行政职务</a-anchor-link>
-            <a-anchor-link href="#cadre-info">职称信息</a-anchor-link>
+            <a-anchor-link href="#job-title">职称信息</a-anchor-link>
             <a-anchor-link href="#party-organization-info"
               >岗位锻炼1个月以上</a-anchor-link
             >
@@ -58,6 +59,7 @@
   import StudyInfo from './components/study-info.vue';
   import WorkInfo from './components/work-info.vue';
   import AdministrationInfo from './components/administration-info.vue';
+  import JobTitle from './components/job-title.vue';
 </script>
 
 <style scoped lang="less">
