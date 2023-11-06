@@ -11,6 +11,8 @@
           <WorkInfo class="general-card" />
           <AdministrationInfo class="general-card" />
           <JobTitle class="general-card" />
+          <WorkTraining1More class="general-card" />
+          <WorkTraining1Less class="general-card" />
         </a-space>
       </div>
       <div class="content-right">
@@ -22,10 +24,12 @@
             <a-anchor-link href="#work-info">工作履历</a-anchor-link>
             <a-anchor-link href="#administration-info">行政职务</a-anchor-link>
             <a-anchor-link href="#job-title">职称信息</a-anchor-link>
-            <a-anchor-link href="#party-organization-info"
+            <a-anchor-link href="#work-training-1-more"
               >岗位锻炼1个月以上</a-anchor-link
             >
-            <a-anchor-link href="#grade-info">培训情况一个月以内</a-anchor-link>
+            <a-anchor-link href="#work-training-1-less"
+              >培训情况一个月以内</a-anchor-link
+            >
             <a-anchor-link href="#award-loan-info">表彰奖励</a-anchor-link>
             <a-anchor-link href="#award-practice-info">职业资格</a-anchor-link>
             <a-anchor-link href="#major-change-info"
@@ -60,6 +64,8 @@
   import WorkInfo from './components/work-info.vue';
   import AdministrationInfo from './components/administration-info.vue';
   import JobTitle from './components/job-title.vue';
+  import WorkTraining1More from './components/work-training-1-more.vue';
+  import WorkTraining1Less from './components/work-training-1-less.vue';
 </script>
 
 <style scoped lang="less">
