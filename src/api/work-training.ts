@@ -14,7 +14,7 @@ export interface WorkTraining1More {
   start_time: string;
   end_time: string;
   organizing_dept: string;
-  receicving_dept: string;
+  receiving_dept: string;
   job_name: string;
   secondment_reason: string;
   note: string;

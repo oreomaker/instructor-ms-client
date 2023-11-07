@@ -1,5 +1,5 @@
 <template>
-  <a-card id="work-training-1-less" title="岗位锻炼1个月以上">
+  <a-card id="work-training-1-less" title="岗位锻炼1个月以内">
     <template #extra>
       <a-button type="text" @click="handleClick">
         <template #icon>
@@ -45,7 +45,7 @@
   import { ref, reactive } from 'vue';
   import { FormInstance } from '@arco-design/web-vue/es/form';
   // TODO: remove
-  import workInfoData from '../data/work-info';
+  import workInfoData from '../data/work-training-1-less';
 
   const columns = [
     {

@@ -13,6 +13,7 @@
           <JobTitle class="general-card" />
           <WorkTraining1More class="general-card" />
           <WorkTraining1Less class="general-card" />
+          <Award class="general-card" />
         </a-space>
       </div>
       <div class="content-right">
@@ -28,19 +29,15 @@
               >岗位锻炼1个月以上</a-anchor-link
             >
             <a-anchor-link href="#work-training-1-less"
-              >培训情况一个月以内</a-anchor-link
+              >培训情况1个月以内</a-anchor-link
             >
-            <a-anchor-link href="#award-loan-info">表彰奖励</a-anchor-link>
-            <a-anchor-link href="#award-practice-info">职业资格</a-anchor-link>
-            <a-anchor-link href="#major-change-info"
-              >学校年度考核</a-anchor-link
-            >
-            <a-anchor-link href="#orientation-info">辅导员考核</a-anchor-link>
-            <a-anchor-link href="#grad-project-info">教学情况</a-anchor-link>
-            <a-anchor-link href="#employment-info">研究项目</a-anchor-link>
-            <a-anchor-link href="#tech-innov-info"
-              >科研成果(论文)</a-anchor-link
-            >
+            <a-anchor-link href="#award">表彰奖励</a-anchor-link>
+            <a-anchor-link href="#qualification">职业资格</a-anchor-link>
+            <a-anchor-link href="#annual-assess">学校年度考核</a-anchor-link>
+            <a-anchor-link href="#instructor-assess">辅导员考核</a-anchor-link>
+            <a-anchor-link href="#teaching-info">教学情况</a-anchor-link>
+            <a-anchor-link href="#research-project">研究项目</a-anchor-link>
+            <a-anchor-link href="#rd-achievement">科研成果(论文)</a-anchor-link>
           </a-anchor>
         </a-affix>
       </div>
@@ -66,6 +63,7 @@
   import JobTitle from './components/job-title.vue';
   import WorkTraining1More from './components/work-training-1-more.vue';
   import WorkTraining1Less from './components/work-training-1-less.vue';
+  import Award from './components/award.vue';
 </script>
 
 <style scoped lang="less">
