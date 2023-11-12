@@ -17,6 +17,9 @@
           <Qualification class="general-card" />
           <AnnualAssess class="general-card" />
           <InstructorAssess class="general-card" />
+          <TeachingInfo class="general-card" />
+          <ResearchProject class="general-card" />
+          <RdAchievement class="general-card" />
         </a-space>
       </div>
       <div class="content-right">
@@ -70,6 +73,9 @@
   import Qualification from './components/qualification.vue';
   import AnnualAssess from './components/annual-assess.vue';
   import InstructorAssess from './components/instructor-assess.vue';
+  import TeachingInfo from './components/teaching-info.vue';
+  import ResearchProject from './components/research-project.vue';
+  import RdAchievement from './components/rd-achievement.vue';
 </script>
 
 <style scoped lang="less">
