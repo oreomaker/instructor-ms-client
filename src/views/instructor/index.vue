@@ -15,6 +15,8 @@
           <WorkTraining1Less class="general-card" />
           <Award class="general-card" />
           <Qualification class="general-card" />
+          <AnnualAssess class="general-card" />
+          <InstructorAssess class="general-card" />
         </a-space>
       </div>
       <div class="content-right">
@@ -66,6 +68,8 @@
   import WorkTraining1Less from './components/work-training-1-less.vue';
   import Award from './components/award.vue';
   import Qualification from './components/qualification.vue';
+  import AnnualAssess from './components/annual-assess.vue';
+  import InstructorAssess from './components/instructor-assess.vue';
 </script>
 
 <style scoped lang="less">
