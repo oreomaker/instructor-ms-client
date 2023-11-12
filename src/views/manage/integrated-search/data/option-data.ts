@@ -1,9 +1,5 @@
 const data = [
   {
-    value: 'base-info',
-    label: '基本信息',
-  },
-  {
     value: 'family-info',
     label: '家庭信息',
   },
@@ -36,7 +32,7 @@ const data = [
     label: '表彰奖励',
   },
   {
-    value: 'qulification',
+    value: 'qualification',
     label: '职业资格',
   },
   {

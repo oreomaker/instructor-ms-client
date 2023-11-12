@@ -50,8 +50,6 @@
 
     <div class="content">
       <a-card title="搜索结果" class="general-card">
-        <a-table :columns="columns" :data="data" />
-
         <template #extra>
           <a-button type="outline" size="small">
             <template #icon>
@@ -60,6 +58,21 @@
             导出
           </a-button>
         </template>
+
+        <FamilyInfo v-if="value == 'family-info'" />
+        <StudyInfo v-if="value == 'study-info'" />
+        <WorkInfo v-if="value == 'work-info'" />
+        <AdministrationInfo v-if="value == 'administration-info'" />
+        <JobTitle v-if="value == 'job-title'" />
+        <WorkTraining1More v-if="value == 'work-training-1-more'" />
+        <WorkTraining1Less v-if="value == 'work-training-1-less'" />
+        <Award v-if="value == 'award'" />
+        <Qualification v-if="value == 'qualification'" />
+        <AnnualAssess v-if="value == 'annual-assess'" />
+        <InstructorAssess v-if="value == 'instructor-assess'" />
+        <TeachingInfo v-if="value == 'teaching-info'" />
+        <ResearchProject v-if="value == 'research-project'" />
+        <RdAchievement v-if="value == 'rd-achievement'" />
       </a-card>
     </div>
   </div>
@@ -67,52 +80,24 @@
 
 <script setup lang="ts">
   import { reactive, ref } from 'vue';
-  import optionData from './data/optionData';
+  import optionData from './data/option-data';
 
-  const value = ref();
+  import FamilyInfo from './components/family-info.vue';
+  import StudyInfo from './components/study-info.vue';
+  import WorkInfo from './components/work-info.vue';
+  import AdministrationInfo from './components/administration-info.vue';
+  import JobTitle from './components/job-title.vue';
+  import WorkTraining1More from './components/work-training-1-more.vue';
+  import WorkTraining1Less from './components/work-training-1-less.vue';
+  import Award from './components/award.vue';
+  import Qualification from './components/qualification.vue';
+  import AnnualAssess from './components/annual-assess.vue';
+  import InstructorAssess from './components/instructor-assess.vue';
+  import TeachingInfo from './components/teaching-info.vue';
+  import ResearchProject from './components/research-project.vue';
+  import RdAchievement from './components/rd-achievement.vue';
 
-  const columns = [
-    {
-      title: 'Name',
-      dataIndex: 'name',
-    },
-    {
-      title: 'Salary',
-      dataIndex: 'salary',
-    },
-    {
-      title: 'Address',
-      dataIndex: 'address',
-    },
-    {
-      title: 'Email',
-      dataIndex: 'email',
-    },
-  ];
-  const data = reactive([
-    {
-      key: '1',
-      name: 'Jane Doe',
-      salary: 23000,
-      address: '32 Park Road, London',
-      email: 'jane.doe@example.com',
-    },
-    {
-      key: '2',
-      name: 'Alisa Ross',
-      salary: 25000,
-      address: '35 Park Road, London',
-      email: 'alisa.ross@example.com',
-    },
-    {
-      key: '3',
-      name: 'Kevin Sandra',
-      salary: 22000,
-      address: '31 Park Road, London',
-      email: 'kevin.sandra@example.com',
-    },
-  ]);
-
+  const value = ref('');
   const form = reactive({
     value1: '',
     value2: '',
