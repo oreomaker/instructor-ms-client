@@ -1,5 +1,5 @@
 <template>
-  <a-card id="qualification" title="研究项目">
+  <a-card id="research-project" title="研究项目">
     <template #extra>
       <a-button type="text" @click="handleClick">
         <template #icon>
