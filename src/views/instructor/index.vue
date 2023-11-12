@@ -14,6 +14,7 @@
           <WorkTraining1More class="general-card" />
           <WorkTraining1Less class="general-card" />
           <Award class="general-card" />
+          <Qualification class="general-card" />
         </a-space>
       </div>
       <div class="content-right">
@@ -64,6 +65,7 @@
   import WorkTraining1More from './components/work-training-1-more.vue';
   import WorkTraining1Less from './components/work-training-1-less.vue';
   import Award from './components/award.vue';
+  import Qualification from './components/qualification.vue';
 </script>
 
 <style scoped lang="less">
