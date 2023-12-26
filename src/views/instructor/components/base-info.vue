@@ -43,13 +43,15 @@
   import { ref, reactive } from 'vue';
   import { FormInstance } from '@arco-design/web-vue/es/form';
   import { BaseInfo, getBaseInfo } from '@/api/base-info';
+  import BaseInfoData from  "../data/base-info";
 
-  let baseInfoData = reactive({} as BaseInfo);
+  // 
+  const baseInfoData = BaseInfoData
   const fetchData = async () => {
     const data = await getBaseInfo();
-    baseInfoData = data.data;
+    // baseInfoData = data;
   };
-  fetchData();
+  // fetchData();
 
   const data = reactive([
     {
