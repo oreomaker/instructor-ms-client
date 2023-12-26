@@ -42,7 +42,6 @@
 <script lang="ts" setup>
   import { ref, reactive } from 'vue';
   import { FormInstance } from '@arco-design/web-vue/es/form';
-  // TODO: remove
   import { BaseInfo, getBaseInfo } from '@/api/base-info';
 
   let baseInfoData = reactive({} as BaseInfo);
