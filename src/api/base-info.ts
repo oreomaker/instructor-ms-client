@@ -104,7 +104,7 @@ export interface BaseInfo {
 }
 
 export function getBaseInfo() {
-  return axios.get<BaseInfo>('/api/users/0/base-info');
+  return axios.get<BaseInfo>('/api/users/8504/base-info');
 }
 export function updateBaseInfo(data: BaseInfo) {
   return axios.post<BaseInfo>('/api/base-info', data);

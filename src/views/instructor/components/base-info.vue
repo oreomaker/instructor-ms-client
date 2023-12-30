@@ -46,12 +46,14 @@
   import BaseInfoData from  "../data/base-info";
 
   // 
-  const baseInfoData = BaseInfoData
+  const baseInfoData = BaseInfoData;
   const fetchData = async () => {
     const data = await getBaseInfo();
+    console.log(data);
+    
     // baseInfoData = data;
   };
-  // fetchData();
+  fetchData();
 
   const data = reactive([
     {
