@@ -50,7 +50,8 @@
 
   const studyInfo = ref([] as StudyInfo[]);
   const fetchData = async () => {
-    const data = await getStudyInfo();
+    // todo: get from user info
+    const data = await getStudyInfo(8504);
     // for each in data
     data.forEach((element) => {
       element.grad_date =

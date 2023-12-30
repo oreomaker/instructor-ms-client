@@ -7,11 +7,12 @@
         :style="{ width: '400px' }"
         placeholder="输入辅导员姓名或工号"
         search-button
+        @search="handleClickSearch"
       />
       {{ searchValue }}
     </a-card>
 
-    <div v-if="searchValue == ''" class="content">
+    <div v-if="!isSearch" class="content">
       <a-card style="width: 100%">
         <a-skeleton>
           <a-space direction="vertical" :style="{ width: '100%' }" size="large">
@@ -21,12 +22,12 @@
         </a-skeleton>
       </a-card>
     </div>
-    <div v-else-if="searchValue != ''" class="content">
+    <div v-else class="content">
       <div class="content-left">
         <a-space direction="vertical" size="medium" fill>
           <BaseInfo class="general-card" />
           <FamilyInfo class="general-card" />
-          <StudyInfo class="general-card" />
+          <StudyInfo class="general-card" :id-number="idNumber" />
           <WorkInfo class="general-card" />
           <AdministrationInfo class="general-card" />
           <JobTitle class="general-card" />
@@ -80,7 +81,7 @@
 </template>
 
 <script setup lang="ts">
-  import { ref } from 'vue';
+  import { ref, computed } from 'vue';
   import BaseInfo from './components/base-info.vue';
   import FamilyInfo from './components/family-info.vue';
   import StudyInfo from './components/study-info.vue';
@@ -98,6 +99,15 @@
   import RdAchievement from './components/rd-achievement.vue';
 
   const searchValue = ref('');
+  const idNumber = computed(() => {
+    return Number(searchValue.value);
+  });
+  const isSearch = ref(false);
+
+  const handleClickSearch = () => {
+    console.log('search');
+    isSearch.value = !isSearch.value;
+  };
 </script>
 
 <style scoped lang="less">

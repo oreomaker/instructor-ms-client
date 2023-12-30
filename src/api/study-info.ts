@@ -28,6 +28,6 @@ export interface StudyInfo {
   school_type: SchoolType;
 }
 
-export function getStudyInfo(): Promise<StudyInfo[]> {
-  return axios.get('/api/users/8504/study-info');
+export function getStudyInfo(id: number): Promise<StudyInfo[]> {
+  return axios.get(`/api/users/${id}/study-info`);
 }

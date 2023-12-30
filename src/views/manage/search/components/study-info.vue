@@ -1,5 +1,6 @@
 <template>
   <a-card id="study-info" title="学习经历">
+    {{ props.idNumber }}
     <template #extra>
       <a-button type="text" @click="handleClick">
         <template #icon>
@@ -9,7 +10,7 @@
       </a-button>
     </template>
 
-    <a-table :columns="columns" :data="data" :pagination="false" />
+    <a-table :columns="columns" :data="studyInfo" :pagination="false" />
 
     <a-modal
       :visible="visible"
@@ -44,8 +45,32 @@
 <script lang="ts" setup>
   import { ref, reactive } from 'vue';
   import { FormInstance } from '@arco-design/web-vue/es/form';
+  import { StudyInfo, getStudyInfo } from '@/api/study-info';
   // TODO: remove
   import studyInfoData from '../data/study-info';
+
+  const props = defineProps({
+    idNumber: {
+      type: Number,
+      required: true,
+    },
+  });
+
+  const studyInfo = ref([] as StudyInfo[]);
+  const fetchData = async () => {
+    const data = await getStudyInfo(props.idNumber);
+    // for each in data
+    data.forEach((element) => {
+      element.grad_date =
+        element.grad_date === null ? '' : element.grad_date.slice(0, 10);
+      element.degree_date =
+        element.degree_date === null ? '' : element.degree_date.slice(0, 10);
+      element.enroll_date =
+        element.enroll_date === null ? '' : element.enroll_date.slice(0, 10);
+    });
+    studyInfo.value = data;
+  };
+  fetchData();
 
   const columns = [
     {
@@ -97,7 +122,6 @@
       dataIndex: 'school_type',
     },
   ];
-  const data = reactive(studyInfoData);
 
   const visible = ref(false);
   const handleClick = () => {

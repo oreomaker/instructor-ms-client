@@ -60,7 +60,7 @@
         </template>
 
         <FamilyInfo v-if="value == 'family-info'" />
-        <StudyInfo v-if="value == 'study-info'" />
+        <StudyInfo v-if="value == 'study-info'" :id-number="8504" />
         <WorkInfo v-if="value == 'work-info'" />
         <AdministrationInfo v-if="value == 'administration-info'" />
         <JobTitle v-if="value == 'job-title'" />
