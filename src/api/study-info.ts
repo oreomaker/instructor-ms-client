@@ -3,14 +3,14 @@ import axios from 'axios';
 // -- 学习经历
 // 学历类型
 export enum StudyingLevel {
-  UNDERGRADUATE = 'undergraduate', // 本科
-  MASTER = 'master_graduate', // 硕士
-  DOCTOR = 'doctor_graduate', // 博士
+  UNDERGRADUATE = '大学本科', // 本科
+  MASTER = '硕士研究生', // 硕士
+  DOCTOR = '博士研究生', // 博士
 }
 // 学校类别
 export enum SchoolType {
-  MINISTRY = 'ministry', // 中央部委
-  MUNICIPALITY = 'municipality', // 市属
+  MINISTRY = '部属高校', // 中央部委
+  MUNICIPALITY = '市属高校', // 市属
 }
 
 export interface StudyInfo {
@@ -29,5 +29,5 @@ export interface StudyInfo {
 }
 
 export function getStudyInfo(): Promise<StudyInfo[]> {
-  return axios.get('/api/study-info').then((res) => res.data);
+  return axios.get('/api/users/8504/study-info');
 }
