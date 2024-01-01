@@ -9,7 +9,7 @@
       </a-button>
     </template>
 
-    <a-table :columns="columns" :data="data" :pagination="false" />
+    <a-table :columns="columns" :data="jobTitle" :pagination="false" />
 
     <a-modal
       :visible="visible"
@@ -44,8 +44,7 @@
 <script lang="ts" setup>
   import { ref, reactive } from 'vue';
   import { FormInstance } from '@arco-design/web-vue/es/form';
-  // TODO: remove
-  import jobTitleData from '../data/job-title';
+  import { JobTitle, getJobTitle } from '@/api/job-title';
 
   const props = defineProps({
     idNumber: {
@@ -53,6 +52,21 @@
       required: true,
     },
   });
+
+  const jobTitle = ref([] as JobTitle[]);
+  const fetchData = async () => {
+    // todo: get from user info
+    const data = await getJobTitle(props.idNumber);
+    // for each in data
+    data.forEach((element) => {
+      element.start_time =
+        element.start_time === null ? '' : element.start_time.slice(0, 10);
+      element.end_time =
+        element.end_time === null ? '' : element.end_time.slice(0, 10);
+    });
+    jobTitle.value = data;
+  };
+  fetchData();
 
   const columns = [
     {
@@ -80,7 +94,6 @@
       dataIndex: 'note',
     },
   ];
-  const data = reactive(jobTitleData);
 
   const visible = ref(false);
   const handleClick = () => {

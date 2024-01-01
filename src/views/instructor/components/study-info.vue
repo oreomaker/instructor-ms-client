@@ -44,9 +44,7 @@
 <script lang="ts" setup>
   import { ref, reactive } from 'vue';
   import { FormInstance } from '@arco-design/web-vue/es/form';
-  // TODO: remove
   import { StudyInfo, getStudyInfo } from '@/api/study-info';
-  import studyInfoData from '../data/study-info';
 
   const studyInfo = ref([] as StudyInfo[]);
   const fetchData = async () => {
@@ -64,6 +62,7 @@
     studyInfo.value = data;
   };
   fetchData();
+
   const columns = [
     {
       title: '学历类型',

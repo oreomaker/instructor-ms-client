@@ -9,7 +9,7 @@
       </a-button>
     </template>
 
-    <a-table :columns="columns" :data="data" :pagination="false" />
+    <a-table :columns="columns" :data="achievements" :pagination="false" />
 
     <a-modal
       :visible="visible"
@@ -44,8 +44,7 @@
 <script lang="ts" setup>
   import { ref, reactive } from 'vue';
   import { FormInstance } from '@arco-design/web-vue/es/form';
-  // TODO: remove
-  import rdAchievementData from '../data/rd-achievement';
+  import { RDAchievement, getRDAchievement } from '@/api/rd-achievement';
 
   const props = defineProps({
     idNumber: {
@@ -53,6 +52,21 @@
       required: true,
     },
   });
+
+  const achievements = ref([] as RDAchievement[]);
+  const fetchData = async () => {
+    // todo: get from user info
+    const data = await getRDAchievement(props.idNumber);
+    // for each in data
+    data.forEach((element) => {
+      element.publication_date =
+        element.publication_date === null
+          ? ''
+          : element.publication_date.slice(0, 10);
+    });
+    achievements.value = data;
+  };
+  fetchData();
 
   const columns = [
     {
@@ -84,7 +98,6 @@
       dataIndex: 'note',
     },
   ];
-  const data = reactive(rdAchievementData);
 
   const visible = ref(false);
   const handleClick = () => {
