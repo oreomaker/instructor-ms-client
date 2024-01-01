@@ -45,13 +45,18 @@
   import { BaseInfo, getBaseInfo } from '@/api/base-info';
   import BaseInfoData from  "../data/base-info";
 
-  // 
-  const baseInfoData = BaseInfoData;
+  const baseInfoData = reactive(BaseInfoData);
   const fetchData = async () => {
-    const data = await getBaseInfo();
+    const data = (await getBaseInfo(8504)) as any;
     console.log(data);
-    
-    // baseInfoData = data;
+    // TODO: base info is not complete, so we use below
+    baseInfoData.administrate_level = data.administrate_level;
+    baseInfoData.administrate_roll = data.administrate_roll;
+    baseInfoData.birth_date = data.birth_date.slice(0, 10);
+    baseInfoData.final_degree = data.final_degree;
+    baseInfoData.final_studying = data.final_studying;
+    baseInfoData.gender = data.gender;
+    baseInfoData.workplace = data.workplace;
   };
   fetchData();
 

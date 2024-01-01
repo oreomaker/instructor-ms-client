@@ -14,18 +14,18 @@ export enum PositionType {
 }
 // 性别
 export enum Gender {
-  MALE = 'male',
-  FEMALE = 'female',
+  MALE = '女',
+  FEMALE = '男',
 }
 // 婚姻状况
 export enum MaritalStatus {
-  MARRIED = 'married',
-  UNMARRIED = 'unmarried',
+  MARRIED = '已婚',
+  UNMARRIED = '未婚',
 }
 // 专职/兼职
 export enum WorkType {
-  FULL_TIME = 'full_time',
-  PART_TIME = 'part_time',
+  FULL_TIME = '全职',
+  PART_TIME = '兼职',
 }
 export interface BaseInfo {
   in_position_status: boolean;
@@ -103,8 +103,8 @@ export interface BaseInfo {
   work_intrests: string;
 }
 
-export function getBaseInfo() {
-  return axios.get<BaseInfo>('/api/users/8504/base-info');
+export function getBaseInfo(id: number) {
+  return axios.get<BaseInfo>(`/api/users/${id}/base-info`);
 }
 export function updateBaseInfo(data: BaseInfo) {
   return axios.post<BaseInfo>('/api/base-info', data);
