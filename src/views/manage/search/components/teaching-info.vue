@@ -47,6 +47,13 @@
   // TODO: remove
   import teachingInfoData from '../data/teaching-info';
 
+  const props = defineProps({
+    idNumber: {
+      type: Number,
+      required: true,
+    },
+  });
+
   const columns = [
     {
       title: '课程名称',

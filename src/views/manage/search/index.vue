@@ -28,18 +28,18 @@
           <BaseInfo class="general-card" />
           <FamilyInfo class="general-card" :id-number="idNumber" />
           <StudyInfo class="general-card" :id-number="idNumber" />
-          <WorkInfo class="general-card" />
-          <AdministrationInfo class="general-card" />
-          <JobTitle class="general-card" />
-          <WorkTraining1More class="general-card" />
-          <WorkTraining1Less class="general-card" />
-          <Award class="general-card" />
-          <Qualification class="general-card" />
-          <AnnualAssess class="general-card" />
-          <InstructorAssess class="general-card" />
-          <TeachingInfo class="general-card" />
-          <ResearchProject class="general-card" />
-          <RdAchievement class="general-card" />
+          <WorkInfo class="general-card" :id-number="idNumber" />
+          <AdministrationInfo class="general-card" :id-number="idNumber" />
+          <JobTitle class="general-card" :id-number="idNumber" />
+          <WorkTraining1More class="general-card" :id-number="idNumber" />
+          <WorkTraining1Less class="general-card" :id-number="idNumber" />
+          <Award class="general-card" :id-number="idNumber" />
+          <Qualification class="general-card" :id-number="idNumber" />
+          <AnnualAssess class="general-card" :id-number="idNumber" />
+          <InstructorAssess class="general-card" :id-number="idNumber" />
+          <TeachingInfo class="general-card" :id-number="idNumber" />
+          <ResearchProject class="general-card" :id-number="idNumber" />
+          <RdAchievement class="general-card" :id-number="idNumber" />
         </a-space>
       </div>
       <div class="content-right">

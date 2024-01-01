@@ -47,6 +47,13 @@
   // TODO: remove
   import researchProjectData from '../data/research-project';
 
+  const props = defineProps({
+    idNumber: {
+      type: Number,
+      required: true,
+    },
+  });
+
   const columns = [
     {
       title: '项目级别',

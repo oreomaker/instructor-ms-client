@@ -47,6 +47,13 @@
   // TODO: remove
   import jobTitleData from '../data/job-title';
 
+  const props = defineProps({
+    idNumber: {
+      type: Number,
+      required: true,
+    },
+  });
+
   const columns = [
     {
       title: '专业技术职务级别',

@@ -47,6 +47,13 @@
   // TODO: remove
   import qualificationData from '../data/qualification';
 
+  const props = defineProps({
+    idNumber: {
+      type: Number,
+      required: true,
+    },
+  });
+
   const columns = [
     {
       title: '证书名称',

@@ -47,6 +47,13 @@
   // TODO: remove
   import administrationInfoData from '../data/administration-info';
 
+  const props = defineProps({
+    idNumber: {
+      type: Number,
+      required: true,
+    },
+  });
+
   const columns = [
     {
       title: '起始时间',

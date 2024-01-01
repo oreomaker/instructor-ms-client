@@ -21,6 +21,6 @@ export interface WorkInfo {
   position_type: PositionType;
 }
 
-export function getWorkInfo(): Promise<WorkInfo[]> {
-  return axios.get('/api/work-info').then((res) => res.data);
+export function getWorkInfo(id: number): Promise<WorkInfo[]> {
+  return axios.get(`/api/users/${id}/work-info`);
 }

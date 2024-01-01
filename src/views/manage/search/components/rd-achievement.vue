@@ -47,6 +47,13 @@
   // TODO: remove
   import rdAchievementData from '../data/rd-achievement';
 
+  const props = defineProps({
+    idNumber: {
+      type: Number,
+      required: true,
+    },
+  });
+
   const columns = [
     {
       title: '题目',

@@ -9,7 +9,7 @@
       </a-button>
     </template>
 
-    <a-table :columns="columns" :data="data" :pagination="false" />
+    <a-table :columns="columns" :data="workInfo" :pagination="false" />
 
     <a-modal
       :visible="visible"
@@ -44,8 +44,22 @@
 <script lang="ts" setup>
   import { ref, reactive } from 'vue';
   import { FormInstance } from '@arco-design/web-vue/es/form';
-  // TODO: remove
-  import workInfoData from '../data/work-info';
+  import { WorkInfo, getWorkInfo } from '@/api/work-info';
+
+  const workInfo = ref([] as WorkInfo[]);
+  const fetchData = async () => {
+    // todo: get from user info
+    const data = await getWorkInfo(8504);
+    // for each in data
+    data.forEach((element) => {
+      element.start_time =
+        element.start_time === null ? '' : element.start_time.slice(0, 10);
+      element.end_time =
+        element.end_time === null ? '' : element.end_time.slice(0, 10);
+    });
+    workInfo.value = data;
+  };
+  fetchData();
 
   const columns = [
     {
@@ -85,7 +99,6 @@
       dataIndex: 'position_type',
     },
   ];
-  const data = reactive(workInfoData);
 
   const visible = ref(false);
   const handleClick = () => {

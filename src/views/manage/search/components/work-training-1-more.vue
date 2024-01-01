@@ -47,6 +47,13 @@
   // TODO: remove
   import workTrainingData from '../data/work-training-1-more';
 
+  const props = defineProps({
+    idNumber: {
+      type: Number,
+      required: true,
+    },
+  });
+
   const columns = [
     {
       title: '锻炼性质',

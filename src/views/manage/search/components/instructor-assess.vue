@@ -47,6 +47,13 @@
   // TODO: remove
   import instructorAssessData from '../data/annual-assess';
 
+  const props = defineProps({
+    idNumber: {
+      type: Number,
+      required: true,
+    },
+  });
+
   const columns = [
     {
       title: '考核年度',

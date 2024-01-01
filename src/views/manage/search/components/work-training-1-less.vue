@@ -47,6 +47,13 @@
   // TODO: remove
   import workInfoData from '../data/work-training-1-less';
 
+  const props = defineProps({
+    idNumber: {
+      type: Number,
+      required: true,
+    },
+  });
+
   const columns = [
     {
       title: '起始时间',

@@ -47,6 +47,13 @@
   // TODO: remove
   import awardData from '../data/award';
 
+  const props = defineProps({
+    idNumber: {
+      type: Number,
+      required: true,
+    },
+  });
+
   const columns = [
     {
       title: '获奖时间',
