@@ -58,7 +58,7 @@
     },
     {
       title: '奖项名称',
-      dataIndex: 'awar_name',
+      dataIndex: 'award_name',
     },
     {
       title: '本人位次',

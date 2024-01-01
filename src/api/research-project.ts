@@ -2,9 +2,9 @@ import axios from 'axios';
 
 // -- 科研项目
 export enum ProjectLevel {
-  NATIONAL = 'national',
-  PROVINCIAL = 'provincial',
-  SCHOOL = 'school',
+  NATIONAL = '国家级',
+  PROVINCIAL = '省级',
+  SCHOOL = '校级',
 }
 
 export interface ResearchProject {
@@ -19,6 +19,6 @@ export interface ResearchProject {
   note: string;
 }
 
-export function getResearchProject(): Promise<ResearchProject[]> {
-  return axios.get('/api/research-project').then((resp) => resp.data);
+export function getResearchProject(userId: number): Promise<ResearchProject[]> {
+  return axios.get(`/api/users/${userId}/research-projects`);
 }

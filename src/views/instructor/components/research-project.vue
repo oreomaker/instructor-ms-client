@@ -9,7 +9,7 @@
       </a-button>
     </template>
 
-    <a-table :columns="columns" :data="data" :pagination="false" />
+    <a-table :columns="columns" :data="projects" :pagination="false" />
 
     <a-modal
       :visible="visible"
@@ -44,8 +44,22 @@
 <script lang="ts" setup>
   import { ref, reactive } from 'vue';
   import { FormInstance } from '@arco-design/web-vue/es/form';
-  // TODO: remove
-  import researchProjectData from '../data/research-project';
+  import { ResearchProject, getResearchProject } from '@/api/research-project';
+
+  const projects = ref([] as ResearchProject[]);
+  const fetchData = async () => {
+    // todo: get from user info
+    const data = await getResearchProject(8504);
+    // for each in data
+    data.forEach((element) => {
+      element.start_time =
+        element.start_time === null ? '' : element.start_time.slice(0, 10);
+      element.end_time =
+        element.end_time === null ? '' : element.end_time.slice(0, 10);
+    });
+    projects.value = data;
+  };
+  fetchData();
 
   const columns = [
     {
@@ -78,14 +92,13 @@
     },
     {
       title: '批准部门',
-      dataIndex: 'approval_dept',
+      dataIndex: 'approve_dept',
     },
     {
       title: '备注',
       dataIndex: 'note',
     },
   ];
-  const data = reactive(researchProjectData);
 
   const visible = ref(false);
   const handleClick = () => {

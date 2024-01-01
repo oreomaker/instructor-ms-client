@@ -2,11 +2,11 @@ import axios from 'axios';
 
 // -- 岗位锻炼_1个月以上
 export enum TrainingType {
-  TEMPORARY = 'temporary', // 挂职
-  LOAD = 'load', // 借调
-  OTHER_DOMESTIC_UNIVERSITY_EXCHANGE = 'other_domestic_university_exchange', // 其他-国内高校交流
-  OTHER_NON_BEIJING_UNIVERSITY_EXCHANGE = 'other_non_beijing_university_exchange', // 其他-非京高校交流
-  OTHER_INTRA_SCHOOL_EXCHANGE = 'other_intra_school_exchange', // 其他-校内交流
+  TEMPORARY = '挂职', // 挂职
+  LOAD = '借调', // 借调
+  OTHER_DOMESTIC_UNIVERSITY_EXCHANGE = '其他-国内高校交流', // 其他-国内高校交流
+  OTHER_NON_BEIJING_UNIVERSITY_EXCHANGE = '其他-非京高校交流', // 其他-非京高校交流
+  OTHER_INTRA_SCHOOL_EXCHANGE = '其他-校内交流', // 其他-校内交流
 }
 
 export interface WorkTraining1More {
@@ -20,15 +20,15 @@ export interface WorkTraining1More {
   note: string;
 }
 
-export function getWorkTraining1More(): Promise<WorkTraining1More[]> {
-  return axios.get('/work-training/1-more').then((res) => res.data);
+export function getWorkTraining1More(id: number): Promise<WorkTraining1More[]> {
+  return axios.get(`/api/users/${id}/work-training-1-more`);
 }
 
 // -- 岗位锻炼_1个月以内
 export enum TrainingLevel {
-  NATIONAL = 'national', // 国家级
-  PROVINCIAL = 'provincial', // 省部级
-  SCHOOL = 'school', // 校级
+  NATIONAL = '国家级', // 国家级
+  PROVINCIAL = '省部级', // 省部级
+  SCHOOL = '校级', // 校级
 }
 
 export interface WorkTraining1Less {
@@ -42,6 +42,6 @@ export interface WorkTraining1Less {
   note: string;
 }
 
-export function getWorkTraining1Less(): Promise<WorkTraining1Less[]> {
-  return axios.get('/work-training/1-less').then((res) => res.data);
+export function getWorkTraining1Less(id: number): Promise<WorkTraining1Less[]> {
+  return axios.get(`/api/users/${id}/work-training-1-less`);
 }

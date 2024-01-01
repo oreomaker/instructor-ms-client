@@ -21,6 +21,8 @@ export interface AdministrationInfo {
   note: string;
 }
 
-export function getAdministrationInfo(): Promise<AdministrationInfo[]> {
-  return axios.get('/api/administration-info').then((res) => res.data);
+export function getAdministrationInfo(
+  id: number
+): Promise<AdministrationInfo[]> {
+  return axios.get(`/api/users/${id}/administration-info`);
 }

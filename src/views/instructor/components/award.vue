@@ -9,7 +9,7 @@
       </a-button>
     </template>
 
-    <a-table :columns="columns" :data="data" :pagination="false" />
+    <a-table :columns="columns" :data="awards" :pagination="false" />
 
     <a-modal
       :visible="visible"
@@ -44,8 +44,22 @@
 <script lang="ts" setup>
   import { ref, reactive } from 'vue';
   import { FormInstance } from '@arco-design/web-vue/es/form';
-  // TODO: remove
-  import awardData from '../data/award';
+  import { Award, getAward } from '@/api/award';
+
+  const awards = ref([] as Award[]);
+  const fetchData = async () => {
+    // todo: get from user info
+    const data = await getAward(8504);
+    // for each in data
+    data.forEach((element) => {
+      element.awarding_time =
+        element.awarding_time === null
+          ? ''
+          : element.awarding_time.slice(0, 10);
+    });
+    awards.value = data;
+  };
+  fetchData();
 
   const columns = [
     {
@@ -58,7 +72,7 @@
     },
     {
       title: '奖项名称',
-      dataIndex: 'awar_name',
+      dataIndex: 'award_name',
     },
     {
       title: '本人位次',
@@ -73,7 +87,6 @@
       dataIndex: 'note',
     },
   ];
-  const data = reactive(awardData);
 
   const visible = ref(false);
   const handleClick = () => {

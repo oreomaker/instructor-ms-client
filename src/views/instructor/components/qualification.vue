@@ -9,7 +9,7 @@
       </a-button>
     </template>
 
-    <a-table :columns="columns" :data="data" :pagination="false" />
+    <a-table :columns="columns" :data="qualifications" :pagination="false" />
 
     <a-modal
       :visible="visible"
@@ -44,8 +44,22 @@
 <script lang="ts" setup>
   import { ref, reactive } from 'vue';
   import { FormInstance } from '@arco-design/web-vue/es/form';
-  // TODO: remove
-  import qualificationData from '../data/qualification';
+  import { Qualification, getQualification } from '@/api/qualification';
+
+  const qualifications = ref([] as Qualification[]);
+  const fetchData = async () => {
+    // todo: get from user info
+    const data = await getQualification(8504);
+    // for each in data
+    data.forEach((element) => {
+      element.awarding_time =
+        element.awarding_time === null
+          ? ''
+          : element.awarding_time.slice(0, 10);
+    });
+    qualifications.value = data;
+  };
+  fetchData();
 
   const columns = [
     {
@@ -61,7 +75,6 @@
       dataIndex: 'awarding_time',
     },
   ];
-  const data = reactive(qualificationData);
 
   const visible = ref(false);
   const handleClick = () => {

@@ -85,7 +85,7 @@
     },
     {
       title: '批准部门',
-      dataIndex: 'approval_dept',
+      dataIndex: 'approve_dept',
     },
     {
       title: '备注',

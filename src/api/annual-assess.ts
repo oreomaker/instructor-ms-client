@@ -14,6 +14,6 @@ export interface AnnualAssess {
   note: string;
 }
 
-export function getAnnualAssess(): Promise<AnnualAssess[]> {
-  return axios.get('/api/annual-assess').then((resp) => resp.data);
+export function getAnnualAssess(id: number): Promise<AnnualAssess[]> {
+  return axios.get(`/api/users/${id}/annual-assess`);
 }

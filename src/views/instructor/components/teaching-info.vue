@@ -9,7 +9,7 @@
       </a-button>
     </template>
 
-    <a-table :columns="columns" :data="data" :pagination="false" />
+    <a-table :columns="columns" :data="teachingInfo" :pagination="false" />
 
     <a-modal
       :visible="visible"
@@ -44,8 +44,22 @@
 <script lang="ts" setup>
   import { ref, reactive } from 'vue';
   import { FormInstance } from '@arco-design/web-vue/es/form';
-  // TODO: remove
-  import teachingInfoData from '../data/teaching-info';
+  import { TeachingInfo, getTeachingInfo } from '@/api/teaching-info';
+
+  const teachingInfo = ref([] as TeachingInfo[]);
+  const fetchData = async () => {
+    // todo: get from user info
+    const data = await getTeachingInfo(8504);
+    // for each in data
+    data.forEach((element) => {
+      element.start_time =
+        element.start_time === null ? '' : element.start_time.slice(0, 10);
+      element.end_time =
+        element.end_time === null ? '' : element.end_time.slice(0, 10);
+    });
+    teachingInfo.value = data;
+  };
+  fetchData();
 
   const columns = [
     {
@@ -66,7 +80,7 @@
     },
     {
       title: '授课人数',
-      dataIndex: 'course_volumn',
+      dataIndex: 'course_volume',
     },
     {
       title: '起始时间',
@@ -81,7 +95,6 @@
       dataIndex: 'note',
     },
   ];
-  const data = reactive(teachingInfoData);
 
   const visible = ref(false);
   const handleClick = () => {

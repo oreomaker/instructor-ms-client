@@ -9,7 +9,7 @@
       </a-button>
     </template>
 
-    <a-table :columns="columns" :data="data" :pagination="false" />
+    <a-table :columns="columns" :data="annualAssess" :pagination="false" />
 
     <a-modal
       :visible="visible"
@@ -44,8 +44,20 @@
 <script lang="ts" setup>
   import { ref, reactive } from 'vue';
   import { FormInstance } from '@arco-design/web-vue/es/form';
-  // TODO: remove
-  import annualAssessData from '../data/annual-assess';
+  import { AnnualAssess, getAnnualAssess } from '@/api/annual-assess';
+
+  const annualAssess = ref([] as AnnualAssess[]);
+  const fetchData = async () => {
+    // todo: get from user info
+    const data = await getAnnualAssess(8504);
+    // for each in data
+    data.forEach((element) => {
+      element.assess_year =
+        element.assess_year === null ? '' : element.assess_year.slice(0, 4);
+    });
+    annualAssess.value = data;
+  };
+  fetchData();
 
   const columns = [
     {
@@ -61,7 +73,6 @@
       dataIndex: 'note',
     },
   ];
-  const data = reactive(annualAssessData);
 
   const visible = ref(false);
   const handleClick = () => {

@@ -2,10 +2,10 @@ import axios from 'axios';
 
 // -- 科研成果（论文）
 export enum JournalType {
-  CSSCI = 'cssci',
-  CORE = 'core',
-  GENERAL = 'general',
-  OTHER = 'other',
+  CSSCI = 'CSSCI',
+  CORE = '核心期刊',
+  GENERAL = '普通期刊',
+  OTHER = '其他',
 }
 
 export interface RDAchievement {
@@ -18,6 +18,6 @@ export interface RDAchievement {
   note: string;
 }
 
-export function getRDAchievement(): Promise<RDAchievement[]> {
-  return axios.get('/api/rd-achievement').then((resp) => resp.data);
+export function getRDAchievement(userId: number): Promise<RDAchievement[]> {
+  return axios.get(`/api/users/${userId}/research-achievements`);
 }

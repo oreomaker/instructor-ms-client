@@ -50,7 +50,7 @@
   const columns = [
     {
       title: '专业技术职务级别',
-      dataIndex: 'professional_level',
+      dataIndex: 'position_level',
     },
     {
       title: '专业技术职务名称',

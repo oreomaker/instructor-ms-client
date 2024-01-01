@@ -2,17 +2,17 @@ import axios from 'axios';
 
 // -- 教学情况
 export enum CourseType {
-  SITUATION_POLICY = 'situation_policy',
-  CAREER_GUIDANCE = 'career_guidance',
-  POLITICAL = 'political',
-  COMPREHENSIVE_QUALITY = 'comprehensive_quality',
-  PROFESSIONAL = 'professional',
-  OTHER = 'other',
+  SITUATION_POLICY = '形势政策课',
+  CAREER_GUIDANCE = '就业指导',
+  POLITICAL = '思想政治课',
+  COMPREHENSIVE_QUALITY = '综合素质',
+  PROFESSIONAL = '专业课',
+  OTHER = '其他',
 }
 
 export enum CourseCharacter {
-  REQUIRED = 'required',
-  ELECTIVE = 'elective',
+  REQUIRED = '必修课',
+  ELECTIVE = '选修课',
 }
 
 export interface TeachingInfo {
@@ -26,6 +26,6 @@ export interface TeachingInfo {
   note: string;
 }
 
-export function getTeachingInfo(): Promise<TeachingInfo[]> {
-  return axios.get('/api/teaching-info').then((resp) => resp.data);
+export function getTeachingInfo(id: number): Promise<TeachingInfo[]> {
+  return axios.get(`/api/users/${id}/teaching-info`);
 }

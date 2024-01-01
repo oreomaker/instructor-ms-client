@@ -8,6 +8,6 @@ export interface InstructorAssess {
   note: string;
 }
 
-export function getInstructorAssess(): Promise<InstructorAssess[]> {
-  return axios.get('/api/instructor-assess').then((resp) => resp.data);
+export function getInstructorAssess(id: number): Promise<InstructorAssess[]> {
+  return axios.get(`/api/users/${id}/instructor-assess`);
 }

@@ -7,6 +7,6 @@ export interface Qualification {
   awarding_time: string;
 }
 
-export function getQualification(): Promise<Qualification[]> {
-  return axios.get('/qualification').then((res) => res.data);
+export function getQualification(userId: number): Promise<Qualification[]> {
+  return axios.get(`/api/users/${userId}/qualifications`);
 }
