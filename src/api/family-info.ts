@@ -22,6 +22,6 @@ export interface FamilyInfo {
   note: string;
 }
 
-export function getFamilyInfo(): Promise<FamilyInfo[]> {
-  return axios.get('/api/family-info').then((res) => res.data);
+export function getFamilyInfo(id: number): Promise<FamilyInfo[]> {
+  return axios.get(`/api/users/${id}/family-info`);
 }

@@ -26,7 +26,7 @@
       <div class="content-left">
         <a-space direction="vertical" size="medium" fill>
           <BaseInfo class="general-card" />
-          <FamilyInfo class="general-card" />
+          <FamilyInfo class="general-card" :id-number="idNumber" />
           <StudyInfo class="general-card" :id-number="idNumber" />
           <WorkInfo class="general-card" />
           <AdministrationInfo class="general-card" />

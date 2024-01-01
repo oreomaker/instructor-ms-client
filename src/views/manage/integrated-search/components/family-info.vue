@@ -9,7 +9,7 @@
       </a-button>
     </template>
 
-    <a-table :columns="columns" :data="data" :pagination="false" />
+    <a-table :columns="columns" :data="familyInfo" :pagination="false" />
 
     <a-modal
       :visible="visible"
@@ -44,8 +44,27 @@
 <script lang="ts" setup>
   import { ref, reactive } from 'vue';
   import { FormInstance } from '@arco-design/web-vue/es/form';
-  // TODO: remove
-  import familyInfoData from '../data/family-info';
+  import { FamilyInfo, getFamilyInfo } from '@/api/family-info';
+
+  const props = defineProps({
+    idNumber: {
+      type: Number,
+      required: true,
+    },
+  });
+
+  const familyInfo = ref([] as FamilyInfo[]);
+  const fetchData = async () => {
+    // todo: get from user info
+    const data = await getFamilyInfo(props.idNumber);
+    // for each in data
+    // data.forEach((element) => {
+    //   element.grad_date =
+    //     element.grad_date === null ? '' : element.grad_date.slice(0, 10);
+    // });
+    familyInfo.value = data;
+  };
+  fetchData();
 
   const columns = [
     {
@@ -89,7 +108,6 @@
       dataIndex: 'note',
     },
   ];
-  const data = reactive(familyInfoData);
 
   const visible = ref(false);
   const handleClick = () => {

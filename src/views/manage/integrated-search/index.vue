@@ -59,7 +59,7 @@
           </a-button>
         </template>
 
-        <FamilyInfo v-if="value == 'family-info'" />
+        <FamilyInfo v-if="value == 'family-info'" :id-number="8504" />
         <StudyInfo v-if="value == 'study-info'" :id-number="8504" />
         <WorkInfo v-if="value == 'work-info'" />
         <AdministrationInfo v-if="value == 'administration-info'" />

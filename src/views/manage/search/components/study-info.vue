@@ -46,8 +46,6 @@
   import { ref, reactive } from 'vue';
   import { FormInstance } from '@arco-design/web-vue/es/form';
   import { StudyInfo, getStudyInfo } from '@/api/study-info';
-  // TODO: remove
-  import studyInfoData from '../data/study-info';
 
   const props = defineProps({
     idNumber: {
